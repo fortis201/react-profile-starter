@@ -33,7 +33,7 @@ const router = new Router(on => {
   on('/register', async () => <RegisterPage />);
   
   on('/', async () => <ProfilePage />);
-  on('/profile', async () => <ProfilePage />);
+  // on('/profile', async () => <ProfilePage />);
 
   // var myProjectsData = "hello world";
 

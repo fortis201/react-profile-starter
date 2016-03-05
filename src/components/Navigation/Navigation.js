@@ -19,12 +19,29 @@ class Navigation extends Component {
     className: PropTypes.string,
   };
 
+  scrollToElement(e) {
+    console.log("scrolling to target:");
+    console.log(e.target);
+    var elName = e.target.getAttribute('data-tag');
+    console.log("elName is: ");
+    console.log(elName);
+    var n = $('#' + elName);
+    console.log("n is: ");
+    console.log(n);
+    console.log("n.offset() returns: ");
+    console.log(n);
+
+    $("html, body").animate({scrollTop: $("#" + elName).offset().top}, 800, 'easeInExpo');
+  }
+
   render() {
     return (
       <div className={cx(s.root, this.props.className)} role="navigation">
-        <Link className={s.link} to="/profile">Profile</Link>
+        <a className={s.link} onClick={this.scrollToElement} data-tag="profile">Profile</a>
         <span className={s.spacer}> | </span>
-        <Link className={s.link} to="/contact">Contact</Link>
+        <a className={s.link} onClick={this.scrollToElement} data-tag="projects">Projects</a>
+        <span className={s.spacer}> | </span>        
+        <a className={s.link} onClick={this.scrollToElement} data-tag="contact">Contact</a>
       </div>
     );
   }

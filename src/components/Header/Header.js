@@ -20,9 +20,6 @@ class Header extends Component {
       <div className={s.root}>
         <div className={s.container}>
           <Navigation className={s.nav} />
-          <Link className={s.brand} to="/">
-            <span className={s.brandTxt}>Shain Lafazan</span>
-          </Link>
         </div>
       </div>
     );

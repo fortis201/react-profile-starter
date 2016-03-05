@@ -12,15 +12,16 @@
 $brand-color: #61dafb;
 
 .root {
-  background: $primary-color;
-  color: $primary-nav-font-color;
-  border-bottom: $primary-border;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: transparent;
 }
 
 .container {
-  margin: 0 auto;
+  margin: 0 0;
   padding: 10px 20px 10px 40px;
-  max-width: $max-content-width;
   height: 39px;
 }
 

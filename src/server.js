@@ -18,10 +18,34 @@ import Router from './routes';
 import Html from './components/Html';
 import assets from './assets';
 import { port } from './config';
+import nodemailer from 'nodemailer';
 
 const server = global.server = express();
 
-
+//
+// nodemailer
+//
+ 
+// create reusable transporter object using the default SMTP transport 
+const transporter = nodemailer.createTransport('smtps://fortis201%40gmail.com:pass@smtp.gmail.com');
+ 
+// setup e-mail data with unicode symbols 
+// var mailOptions = {
+//     from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address 
+//     to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers 
+//     subject: 'Hello ✔', // Subject line 
+//     text: 'Hello world 🐴', // plaintext body 
+//     html: '<b>Hello world 🐴</b>' // html body 
+// };
+ 
+// send mail with defined transport object 
+// transporter.sendMail(mailOptions, function(error, info){
+//     if(error){
+//         return console.log(error);
+//     }
+//     console.log('Message sent: ' + info.response);
+// });
+// /nodemailer
 
 //
 // Register Node.js middleware
@@ -33,24 +57,37 @@ server.use(express.static(path.join(__dirname, 'public')));
 // -----------------------------------------------------------------------------
 server.use('/api/content', require('./api/content').default);
 
-// 
-// Hooking up a pseudo-database file in json format
-//
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 var PROJECTS_FILE = path.join(__dirname, './content/myProjects.json');
 
-server.use('/myProjects', function(req, res) {
-  fs.readFile(PROJECTS_FILE, function(err, data) {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-    res.setHeader('Cache-Control', 'no-cache');
-    // res.json(JSON.parse(data));
+server.post('/callToAction', function (req, res) {
+  console.log("Pinged server! received the following:");
+  console.log(req.body);
+
+  // TODO: 
+  // * Create a new gmail account to test this
+  // * for reference, look at: http://stackoverflow.com/questions/19877246/nodemailer-with-gmail-and-nodejs
+  // point my domain to the ec2 instance
+
+  // setup e-mail data with unicode symbols 
+  var mailOptions = {
+    from: req.body.email,
+    to: 'fortis201@gmail.com',
+    subject: 'JVPrime - Email From Portfolio',
+    text: req.body.message,
+    // html: '<b>Hello world 🐴</b>' // html body 
+  };
+ 
+  // send mail with defined transport object 
+  transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+          return console.log(error);
+      }
+      console.log('Message sent: ' + info.response);
   });
-});
-// /End json pseudo-database
+  res.json({msg: "response from server after attempting to send email..."})
+})
 
 //
 // Register server-side rendering middleware

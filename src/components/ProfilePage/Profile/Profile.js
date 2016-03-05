@@ -5,9 +5,21 @@ import {Button, Card, Row, Col} from 'react-materialize';
 
 class Profile extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+
+  componentDidUpdate() {
+    console.log(" ~ ~ ~ In Profile Component! PROPS are: ~ ~ ~");
+    console.log(this.props);
+  }
+
   render() {
     return (
-      <div className={s.root}>
+      <div className={s.root} id="profile">
         <div className={s.container}>
         	<h1 className={s.heading}>About Me</h1>
           <Row>

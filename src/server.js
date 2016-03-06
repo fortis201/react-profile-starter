@@ -18,7 +18,28 @@ import Router from './routes';
 import Html from './components/Html';
 import assets from './assets';
 import { port } from './config';
+
 import nodemailer from 'nodemailer';
+import xoauth2 from 'xoauth2';
+
+// ===========================
+// xoauth2 getting tokens and other auth info:
+// ===========================
+
+// xoauth2.getToken( (e) => {
+//   console.log("Attempted to acquire token for xoauth2. Result is: ");
+//   consoel.log(e);
+// })
+
+// TODO: 
+// create new gmail account to test nodemailer and auth
+
+// const xoauth2Tokens = xoauth2.createXOAuth2Generator({
+//   user: 'jvprime201@gmail.com',
+//   clientId: '408446552338-4i882hkm1nflajvma74sfgrgq8j6bmag.apps.googleusercontent.com',
+//   clientSecret: 'LWThtkfyt46ZtNV7G-j1ELcx',
+//   refreshToken: '1/dvW7LtgJ8javUynv1Q1Y3uHyOp-EiSHQMKvVgDKmbgs', 
+// })
 
 const server = global.server = express();
 
@@ -27,24 +48,8 @@ const server = global.server = express();
 //
  
 // create reusable transporter object using the default SMTP transport 
-const transporter = nodemailer.createTransport('smtps://fortis201%40gmail.com:pass@smtp.gmail.com');
- 
-// setup e-mail data with unicode symbols 
-// var mailOptions = {
-//     from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address 
-//     to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers 
-//     subject: 'Hello ✔', // Subject line 
-//     text: 'Hello world 🐴', // plaintext body 
-//     html: '<b>Hello world 🐴</b>' // html body 
-// };
- 
-// send mail with defined transport object 
-// transporter.sendMail(mailOptions, function(error, info){
-//     if(error){
-//         return console.log(error);
-//     }
-//     console.log('Message sent: ' + info.response);
-// });
+// const transporter = nodemailer.createTransport('smtps://fortis201%40gmail.com:pass@smtp.gmail.com');
+
 // /nodemailer
 
 //
@@ -65,15 +70,32 @@ server.post('/callToAction', function (req, res) {
   console.log("Pinged server! received the following:");
   console.log(req.body);
 
+  // ===========================
   // TODO: 
   // * Create a new gmail account to test this
   // * for reference, look at: http://stackoverflow.com/questions/19877246/nodemailer-with-gmail-and-nodejs
-  // point my domain to the ec2 instance
+  // * point my domain to the ec2 instance
+  // ===========================
+
+  var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      xoauth2: xoauth2.createXOAuth2Generator({
+        user: 'jvprime201@gmail.com',
+        clientId: '408446552338-4i882hkm1nflajvma74sfgrgq8j6bmag.apps.googleusercontent.com',
+        clientSecret: 'LWThtkfyt46ZtNV7G-j1ELcx',
+        refreshToken: '1/xi4JuOHJqBfQ9PrgY4Bmg0BixnPzWqUZ2YJ_IAVv3r0'
+      }, function (e) {
+        console.log("attempted to authorize using xoauth2. response:");
+        console.log(e);
+      })
+    }
+  })
 
   // setup e-mail data with unicode symbols 
   var mailOptions = {
     from: req.body.email,
-    to: 'fortis201@gmail.com',
+    to: 'jvprime201@gmail.com',
     subject: 'JVPrime - Email From Portfolio',
     text: req.body.message,
     // html: '<b>Hello world 🐴</b>' // html body 
@@ -82,6 +104,7 @@ server.post('/callToAction', function (req, res) {
   // send mail with defined transport object 
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
+        console.log("error...");
           return console.log(error);
       }
       console.log('Message sent: ' + info.response);

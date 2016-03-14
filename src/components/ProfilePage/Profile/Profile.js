@@ -13,8 +13,8 @@ class Profile extends Component {
   }
 
   componentDidUpdate() {
-    console.log(" ~ ~ ~ In Profile Component! PROPS are: ~ ~ ~");
-    console.log(this.props);
+    // console.log(" ~ ~ ~ In Profile Component! PROPS are: ~ ~ ~");
+    // console.log(this.props);
   }
 
   render() {
@@ -26,21 +26,22 @@ class Profile extends Component {
             <Col s={12} m={6} l={4} className={s.photoContainer}>
               <img className={s.profileImg} src="jv.jpg" alt='profile photo'/>
             </Col>
+
             <Col s={12} m={6} l={8} className={s.profileTextContainer}>
-              <h2 className={s.subheading}>I code, therefore I am</h2>
+              <h5 className={s.subheading}>One simply does not learn something once without improving.</h5>
+
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum sollicitudin sagittis augue, ac pharetra enim convallis ac. 
-                Donec cursus libero tortor, eget pretium elit aliquet ut. 
-                Suspendisse interdum interdum ex lacinia cursus. 
-                Integer in risus lacinia, dictum augue sed, tincidunt orci. 
-                Sed ullamcorper eleifend dui, vel tristique diam porta vel. 
-                Morbi consectetur augue ac sapien luctus egestas. 
-                Proin non sagittis leo. 
-                Morbi eu finibus turpis. 
-                Vivamus porttitor egestas enim. 
-                Pellentesque at justo ut lacus pharetra maximus nec et risus.
+                <span className={s.bold}>With new technologies come new problems along with different perspectives on past issues. How do you pick one to focus on?</span>
               </p>
+              <br></br>
+              <p> 
+                I&#39;m a full stack web and mobile developer currently focusing on Node.js-based applications and I often ask myself this question when thinking about my next personal project. The answer doesn&#39;t always come right away, but it&#39;s definitely one of the many things I search for everyday. 
+              </p>
+              <br></br>
+              <p>
+                I recently worked with a small team of engineers to completely redesign and rebuild a peer-to-peer advertising platform at Spot Knoker. I&#39;m currently looking for more contract and/or full-time work to build up my professional experience and learn as much as I can in the technology field.
+              </p>
+
             </Col>
           </Row>
         </div>

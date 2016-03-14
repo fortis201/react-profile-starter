@@ -20,16 +20,16 @@ class Navigation extends Component {
   };
 
   scrollToElement(e) {
-    console.log("scrolling to target:");
-    console.log(e.target);
+    // console.log("scrolling to target:");
+    // console.log(e.target);
     var elName = e.target.getAttribute('data-tag');
-    console.log("elName is: ");
-    console.log(elName);
+    // console.log("elName is: ");
+    // console.log(elName);
     var n = $('#' + elName);
-    console.log("n is: ");
-    console.log(n);
-    console.log("n.offset() returns: ");
-    console.log(n);
+    // console.log("n is: ");
+    // console.log(n);
+    // console.log("n.offset() returns: ");
+    // console.log(n);
 
     $("html, body").animate({scrollTop: $("#" + elName).offset().top}, 800, 'easeInExpo');
   }

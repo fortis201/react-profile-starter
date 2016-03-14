@@ -14,6 +14,12 @@ class ProjectTile extends Component {
 
 	}
 
+  scrollToElement(e) {
+    var elName = e.target.getAttribute('data-tag');
+    var n = $('#' + elName);
+    $("html, body").animate({scrollTop: $("#" + elName).offset().top}, 800, 'easeInExpo');
+  }
+
 	projectNodes() {
 		return this.props.data.map((projData) => {
 			return (
@@ -24,12 +30,12 @@ class ProjectTile extends Component {
 	    			
 	    			<Row>
 	    				<Col s={3} m={3} l={3}>
-			    			<img className={s.testmonialImg} src={projData.testimonialAuthorImg} />
+			    			<a href={projData.tAuthorLinkedIn}><img className={s.testmonialImg} src={projData.testimonialAuthorImg} /></a>
 		    			</Col>
 		    			<Col s={9} m={9} l={9}>
 			    			<p className={s.testimonialText}>{'"' + projData.testimonial + '"'}</p>
-			    			<p>-{projData.testimonialAuthor}</p>
-			    			<p>{projData.tAuthorRole}</p>
+			    			<p> - <a href={projData.tAuthorLinkedIn}>{projData.testimonialAuthor}</a> <br></br> {projData.tAuthorRole}</p>
+
 		    			</Col>
 	    			</Row>
 				</Col>
@@ -39,27 +45,6 @@ class ProjectTile extends Component {
 
 	render() {
 
-		// var projectNodes = this.props.data.map((projData) => {
-		// 	return (
-		// 		<Col name={projData.projName} key={projData.id} s={12} m={4} l={4}>
-		// 			<img className={s.projectThumb} src={projData.projThumbnail} />
-		// 			<h1>{projData.projName}</h1>
-		// 			<p>{projData.projDescription}</p>
-	    			
-	 //    			<Row>
-	 //    				<Col s={3} m={3} l={3}>
-		// 	    			<img className={s.testmonialImg} src={projData.testimonialAuthorImg} />
-		//     			</Col>
-		//     			<Col s={9} m={9} l={9}>
-		// 	    			<p className={s.testimonialText}>{'"' + projData.testimonial + '"'}</p>
-		// 	    			<p>-{projData.testimonialAuthor}</p>
-		// 	    			<p>{projData.tAuthorRole}</p>
-		//     			</Col>
-	 //    			</Row>
-		// 		</Col>
-		// 	);
-
-		// });
 		return (
 			<Row className={s.container}>
 				{this.projectNodes()}

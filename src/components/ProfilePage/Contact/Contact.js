@@ -18,61 +18,61 @@ class Contact extends Component {
 	}
 
 	componentDidUpdate() {
-		console.log("Contact component has been udpated... States: ");
-		console.log(this.state);
+		// console.log("Contact component has been udpated... States: ");
+		// console.log(this.state);
 	}
 
 
   	handleInputChange(e) {
-	    console.log("clicked handleInputChange");
+	    // console.log("clicked handleInputChange");
 	    var inputField = e.target.getAttribute("data-tag");
 	    var iValue = $("#" + inputField).val();
 
 	    switch (inputField) {
 	      case "name":
-	        console.log("name field value:");
-	        console.log(iValue);
+	        // console.log("name field value:");
+	        // console.log(iValue);
 	        this.setState({
 	        	sName: iValue,
 	        });
 	        break;
 	      case "email":
-	        console.log("email field value:");
-	        console.log(iValue);
+	        // console.log("email field value:");
+	        // console.log(iValue);
 	        this.setState({
 	        	sEmail: iValue,
 	        });
 	        break;
 	      case "phone":
-	        console.log("phone field value:");
-	        console.log(iValue);
+	        // console.log("phone field value:");
+	        // console.log(iValue);
 	        this.setState({
 	        	sPhone: iValue,
 	        });
 	        break;
 	      case "website":
-	        console.log("website field value:");
-	        console.log(iValue);
+	        // console.log("website field value:");
+	        // console.log(iValue);
 	        this.setState({
 	        	sWebsite: iValue,
 	        });
 	        break;
 	      case "message":
-	        console.log("message field value:");
-	        console.log(iValue);
+	        // console.log("message field value:");
+	        // console.log(iValue);
 	        this.setState({
 	        	sMessage: iValue,
 	        });
 	        break;
 	      default: 
-	        console.log("did not receive appropriate input");
+	        console.log("I cannot understand what you just typed");
 	        break;
 	    }
 	}
 
 	handleSubmit() {
-		console.log("clicked Submit, sending the following");
-		console.log(this.state);
+		// console.log("clicked Submit, sending the following");
+		// console.log(this.state);
 		$.ajax({
 			type: "POST",
 			dataType: "json",
@@ -85,8 +85,8 @@ class Contact extends Component {
 				message: this.state.sMessage,
 			},
 			success: (e) => {
-				console.log("Successfully received a response form the server:");
-				console.log(e);
+				// console.log("Successfully received a response form the server:");
+				// console.log(e);
 			}
 		})
 	}

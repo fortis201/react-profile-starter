@@ -36,7 +36,7 @@ class ProfilePage extends Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <Parallax strength={300} className={s.parallax} bgImage={"dummy_bg_0.jpg"}>
+          <Parallax strength={300} className={s.parallax} bgImage={"sp_bg_purp.jpg"}>
             <Splash />
           </Parallax>
           <Profile myProjects={this.props.myProjects} />

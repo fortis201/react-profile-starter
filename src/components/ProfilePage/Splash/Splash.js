@@ -21,7 +21,6 @@ class Splash extends Component {
           <div className={s.lowerText}>
             <h1 className={s.heading}>J.V. Estolas</h1>
             <h2 className={s.subheading}>Full Stack Web Developer</h2>
-            <Button>AVAILABLE FOR HIRE</Button>
           </div>
           <div className={s.bottomTextContainer}>
             <a id='learn-more' className={s.bottomLink} onClick={this.scrollDown}>Learn more about what I do</a>

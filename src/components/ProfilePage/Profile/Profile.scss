@@ -21,7 +21,6 @@
   margin: 0 0 1rem 0; 
   @media screen and (max-width: $screen-md-min) {
     text-align: center;
-    font-size: 1.5rem;
   }
   @media screen and (min-width: $screen-xs-min) {
     margin: 0.5rem 0 1rem 0;
@@ -57,4 +56,18 @@
       // text-align: center;
     }
   }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.link {
+  display: inline-block;
+  padding: 3px 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: $nav-link-font-weight;
+  margin: 1px 0 0 0;
+  color: #989898;
 }

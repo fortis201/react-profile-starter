@@ -21,7 +21,7 @@ class Footer extends Component {
         <div className={s.container}>
 
         <div className={s.iconBar}>
-          <a href='https://www.facebook.com/diamondj.' className={s.footerIcon}>
+          <a href='http://www.facebook.com/DiamondJ.V.Estolas' className={s.footerIcon}>
             <SVGIcon size="2.5rem" icon="post-facebook" />            
           </a>
           <a href='https://www.linkedin.com/in/jvestolas' className={s.footerIcon}>
@@ -33,9 +33,9 @@ class Footer extends Component {
         </div>
 
         <div className={s.lowerText}>
-          <span className={s.text}>© Shain Lafazan, 2016</span>
-          <span className={s.spacer}>·</span>
-          <span className={s.text}>Hand-built with ReactJS</span>
+          <span className={s.text}>© Joseph Victor "J.V." Estolas, 2016</span>
+          <span className={s.spacer}> · </span>
+          <span className={s.text}>Built with ReactJS</span>
         </div>
         </div>
       </div>

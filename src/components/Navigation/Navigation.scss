@@ -24,7 +24,7 @@ $nav-link-font-weight: 600;
   font-size: 0.9rem;
   font-weight: $nav-link-font-weight;
   margin: 1px 0 0 0;
-  color: #989898;
+  color: white;
 }
 
 .link {
@@ -35,6 +35,8 @@ $nav-link-font-weight: 600;
 }
 .link:hover {
   color: $nav-link-hover-color;
+  cursor: hand;
+  cursor: pointer;
 }
 .link:visited {
 }

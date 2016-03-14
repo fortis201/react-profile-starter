@@ -55,33 +55,36 @@ class App extends Component {
           "projName": "SpotKnocker",
           "projUrl": "http://www.spotknocker.com/",
           "projThumbnail": "spotknocker-screenie.png",
-          "projDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin sagittis augue, ac pharetra enim convallis ac. Donec cursus libero tortor, eget pretium elit aliquet ut.",
-          "testimonialAuthorImg": "http://stanlemmens.nl/wp/wp-content/uploads/2014/07/bill-gates-wealthiest-person.jpg",
-          "testimonialAuthor": "Author Name",
-          "tAuthorRole": "It works",
-          "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "projDescription": "A disruptive peer-to-peer advertising platform",
+          "testimonialAuthorImg": "slProfile.jpg",
+          "testimonialAuthor": "Shain Lafazan",
+          "tAuthorRole": "CTO at Forte",
+          "testimonial": "J.V. can quickly learn and effectively implement technologies that are new to him.",
+          "tAuthorLinkedIn": "https://www.linkedin.com/in/shainlafazan"
         },
         {
           "id": 102,
           "projName": "Figma & Comics E-shop",
           "projUrl": "https://github.com/fortis201/codingdojo_LAMP_ecommerce",
           "projThumbnail": "jns-figma-screenie.png",
-          "projDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin sagittis augue, ac pharetra enim convallis ac. Donec cursus libero tortor, eget pretium elit aliquet ut.",
-          "testimonialAuthorImg": "http://stanlemmens.nl/wp/wp-content/uploads/2014/07/bill-gates-wealthiest-person.jpg",
-          "testimonialAuthor": "Author Name",
-          "tAuthorRole": "It works",
-          "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "projDescription": "Mock online store for anime, comic book, and figma collectors!",
+          "testimonialAuthorImg": "sphProfile.jpg",
+          "testimonialAuthor": "Sonia Hashim",
+          "tAuthorRole": "CS Student at Princeton",
+          "testimonial": "J.V. is a professional, courteous, effective and efficient programmer who is great to work with!",
+          "tAuthorLinkedIn": "https://www.linkedin.com/in/soniahashim"
         },
         {
           "id": 103,
           "projName": "Dollar Bank Club",
           "projUrl": "https://github.com/fortis201/LaunchHackathon2016TeamProject",
           "projThumbnail": "dbc-screenie.png",
-          "projDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin sagittis augue, ac pharetra enim convallis ac. Donec cursus libero tortor, eget pretium elit aliquet ut.",
-          "testimonialAuthorImg": "http://stanlemmens.nl/wp/wp-content/uploads/2014/07/bill-gates-wealthiest-person.jpg",
-          "testimonialAuthor": "Author Name",
-          "tAuthorRole": "It works",
-          "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "projDescription": "Accept payments as a business without the need for a bank account.",
+          "testimonialAuthorImg": "ct_Profile.png",
+          "testimonialAuthor": "Chris Tran",
+          "tAuthorRole": "Web Developer at 100% Pure",
+          "testimonial": "J.V. would definitely be a crucial asset to any engineering team.",
+          "tAuthorLinkedIn": "https://www.linkedin.com/in/ntchristopher"
         }
       ],
     }
@@ -105,12 +108,11 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    console.log("App is about to be UNMOUTNED!");
+    // console.log("App is about to be UNMOUTNED!");
     this.removeCss();
   }
 
   loadChildrenWithProps () {
-    console.log("in function loadChildrenWithAppProps from App, the mother of all!");
     var childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement (child, 
       { 
         myProjects: this.state.myProjects,

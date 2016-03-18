@@ -15,16 +15,21 @@ $nav-link-font-weight: 600;
 
 .root {
   background: transparent;
+  margin-left: 75%;
 }
 
 .link {
   display: inline-block;
   padding: 3px 8px;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: $nav-link-font-weight;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin: 1px 0 0 0;
   color: white;
+  text-shadow: 1px 1px 2px black;
+  -moz-text-shadow: 1px 1px 2px black;
+  -webkit-text-shadow: 1px 1px 2px black;
+
 }
 
 .link {

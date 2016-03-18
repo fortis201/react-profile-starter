@@ -11,7 +11,7 @@ import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './ContactPage.scss';
 
-const title = 'Contact Shain';
+const title = 'Contact JV';
 
 class ContactPage extends Component {
 

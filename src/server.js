@@ -67,7 +67,7 @@ server.use(bodyParser.urlencoded({extended: true}));
 var PROJECTS_FILE = path.join(__dirname, './content/myProjects.json');
 
 server.post('/callToAction', function (req, res) {
-  console.log("Pinged server! received the following:");
+  console.log("# # # # # # # Pinged server! received the following: # # # # # # #");
   console.log(req.body);
 
   // ===========================
@@ -95,8 +95,12 @@ server.post('/callToAction', function (req, res) {
   // setup e-mail data with unicode symbols 
   var mailOptions = {
     from: req.body.email,
-    to: 'jvprime201@gmail.com',
-    subject: 'JVPrime - Email From Portfolio',
+    to: 'jvprime201@gmail.com', 
+    envelope: {
+      from: '"' + req.body.name + '" ' + req.body.email,
+      to: 'jvprime201@gmail.com'
+    },
+    subject: 'JVPrime - Email From: ' + req.body.name,
     text: req.body.message,
     // html: '<b>Hello world 🐴</b>' // html body 
   };

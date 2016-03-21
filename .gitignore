@@ -5,3 +5,5 @@ build
 node_modules
 ncp-debug.log
 npm-debug.log
+passenger.3000.log
+passenger.3000.pid.lock

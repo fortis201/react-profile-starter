@@ -22,12 +22,12 @@ class Footer extends Component {
 
         <div className={s.iconBar}>
           <a href='http://www.facebook.com/DiamondJ.V.Estolas' className={s.footerIcon}>
-            <SVGIcon size="2.5rem" icon="post-facebook" />            
+            <SVGIcon size="2.5rem" icon="post-facebook" />
           </a>
           <a href='https://www.linkedin.com/in/jvestolas' className={s.footerIcon}>
             <SVGIcon size="2.5rem" icon="post-linkedin" />
           </a>
-          <a href='https://github.com/fortis201' className={s.footerIcon}>
+          <a href='https://github.com/jvestolas' className={s.footerIcon}>
             <SVGIcon size="2.5rem" icon="post-github" />
           </a>
         </div>
